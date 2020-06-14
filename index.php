@@ -69,8 +69,9 @@ if(isset($_SESSION["perfil"])){
                                     <h1>Bar Nombre Por Especificar</h1>
                                     <p>Ubicado en algun lugar, numero 56 de la localidad INDEFINIDA</p>
 								</header>
+								
 								<div class="jumplink pic">
-									<img src="images/116-2.jpg" alt="" />
+									<div id="map"></div>
 								</div>
 							</article>
 						<!-- Contact -->
@@ -119,6 +120,9 @@ if(isset($_SESSION["perfil"])){
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/ajax.js"></script>
-
+			<script src="assets/js/javascript.js"></script>
+			<script async defer
+    		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx42ttqxanDGh0ORtraZ72R131uLuAQwo&callback=initMap">
+    		</script>
 	</body>
 </html>

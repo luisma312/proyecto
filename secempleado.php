@@ -187,6 +187,9 @@ session_start();
 							<a href="#mesas" class="icon solid fa-table"><span>Mesas</span></a>
 							<a href="logout.php" class="icon solid fa-door-open"><span>SALIR</span></a>
 						<!-- <a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a> -->
+						
+
+
 					</nav>
 
 				<!-- Main -->
