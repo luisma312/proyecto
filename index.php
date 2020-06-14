@@ -120,7 +120,7 @@ if(isset($_SESSION["perfil"])){
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/ajax.js"></script>
-			<script src="assets/js/javascript.js"></script>
+			<script src="assets/js/mapa.js"></script>
 			<script async defer
     		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx42ttqxanDGh0ORtraZ72R131uLuAQwo&callback=initMap">
     		</script>
