@@ -67,12 +67,15 @@ if(isset($_SESSION["perfil"])){
 							<article id="posicion" class="panel intro">
 								<header>
                                     <h1>Bar Nombre Por Especificar</h1>
-                                    <p>Ubicado en algun lugar, numero 56 de la localidad INDEFINIDA</p>
+									<p>Ubicado en Av. Nervión.</p><br>
 								</header>
+
+								<div id="msg"></div>
+								<div style="height:100%; width:80%;">
+         							<div id="map"></div>
+    							</div>
 								
-								<div class="jumplink pic">
-									<div id="map"></div>
-								</div>
+								
 							</article>
 						<!-- Contact -->
 							<article id="contact" class="panel">
