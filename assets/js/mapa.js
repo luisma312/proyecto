@@ -57,57 +57,59 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 }
   function calculaRuta(){
+    if(document.getElementById("drc").value==""){
+      alert("Introduzca una direccion válida")
+    }else{
 
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 36.912365, lng: -6.086858},
-      zoom: 15
-    });
-    
-    document.getElementById('msg').innerHTML="";
-      var place = autocompletar.getPlace();
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 36.912365, lng: -6.086858},
+        zoom: 15
+      });
       
-      var latitud = place.geometry.location.lat();
-
-      var longitud = place.geometry.location.lng();
-      
-      var pos2 = {
-        lat:  latitud, lng: longitud
-           };
-
-
-      
-
-      var directionsService = new google.maps.DirectionsService();
-      var directionsRenderer = new google.maps.DirectionsRenderer();
-      directionsRenderer.setMap(map);
-       // Existing map object displays directions
-      // Create route from existing points used for markers
-      const route = {
-          origin: pos,
-          destination: pos2,
-          travelMode: 'DRIVING'
-      }
-   
-      directionsService.route(route,
-        function(response, status) { // anonymous function to capture directions
-          if (status !== 'OK') {
-            window.alert('Directions request failed due to ' + status);
-            return;
-          } else {
-            directionsRenderer.setDirections(response); // Add route to the map
-            var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-            if (!directionsData) {
-              window.alert('Directions request failed');
+      document.getElementById('msg').innerHTML="";
+        var place = autocompletar.getPlace();
+        
+        var latitud = place.geometry.location.lat();
+  
+        var longitud = place.geometry.location.lng();
+        
+        var pos2 = {
+          lat:  latitud, lng: longitud
+             };
+  
+  
+        
+  
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+         // Existing map object displays directions
+        // Create route from existing points used for markers
+        const route = {
+            origin: pos,
+            destination: pos2,
+            travelMode: 'DRIVING'
+        }
+     
+        directionsService.route(route,
+          function(response, status) { // anonymous function to capture directions
+            if (status !== 'OK') {
+              window.alert('Directions request failed due to ' + status);
               return;
+            } else {
+              directionsRenderer.setDirections(response); // Add route to the map
+              var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+              if (!directionsData) {
+                window.alert('Directions request failed');
+                return;
+              }
+              else {
+                document.getElementById('msg').innerHTML += "La distncia en coche es de " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
+              }
             }
-            else {
-              document.getElementById('msg').innerHTML += "La distncia en coche es de " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-            }
-          }
-        });
-
-
-
+          });
+    }
+   
     }
   
 

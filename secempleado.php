@@ -198,7 +198,18 @@ session_start();
 						<!-- Cobro mesas -->
 							<article id="mesas" class="panel">
 								<header>
-									<h2>Estas viendo la pantalla del cobro de mesas</h2>
+								<?php
+								$result=mysqli_query($conexion,'select idMesa,(SELECT usuarios.nombre from usuarios where usuarios.idUsuario=camarero) as cam from mesas where ocupada=1');
+									if($result->num_rows > 0){
+										echo "<table class='default' style='background-color:#f4f4f4'>";
+										echo "<th>Nº Mesa</th><th>Camarero</th><th>Seleccion</th>";
+										while($row = $result->fetch_assoc()){
+											echo "<tr><td>".$row["idMesa"]."</td><td>".$row["cam"]."</td><td><button>Cobrar</button></td></tr>";
+										}
+										
+									
+									}
+									?>
 								</header>
 														
 							</article>
@@ -213,5 +224,6 @@ session_start();
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/javascript.js"></script>
 			<script src="assets/js/ajax.js"></script>
+			
 	</body>
 </html>
