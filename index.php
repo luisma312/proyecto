@@ -68,6 +68,8 @@ if(isset($_SESSION["perfil"])){
 								<header>
                                     <h1>Bar Nombre Por Especificar</h1>
 									<p>Ubicado en Av. Nervión.</p><br>
+									<p>Calcule la ruta mas rapida</p>
+									<table><tr><td><input type="text" name="drc" id="drc"></td><td><button type="submit" onclick="calculaRuta()">Calcular</button></td></tr></table>
 								</header>
 
 								<div id="msg"></div>
@@ -125,7 +127,7 @@ if(isset($_SESSION["perfil"])){
 			<script src="assets/js/ajax.js"></script>
 			<script src="assets/js/mapa.js"></script>
 			<script async defer
-    		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx42ttqxanDGh0ORtraZ72R131uLuAQwo&callback=initMap">
+    		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx42ttqxanDGh0ORtraZ72R131uLuAQwo&callback=initMap&libraries=places">
     		</script>
 	</body>
 </html>
