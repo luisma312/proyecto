@@ -1,6 +1,5 @@
 
 var map, infoWindow,autocompletar;
-
 var pos = {
   lat:  36.912365,
   lng: -6.086858
@@ -48,9 +47,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
-
+    var restriccion ={componentRestrictions:{country: 'es'}};
     var input = document.getElementById('drc');
-    autocompletar=new google.maps.places.Autocomplete(input);
+    autocompletar=new google.maps.places.Autocomplete(input,restriccion);
 
 
   
@@ -58,6 +57,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 }
   function calculaRuta(){
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 36.912365, lng: -6.086858},
+      zoom: 15
+    });
     
     document.getElementById('msg').innerHTML="";
       var place = autocompletar.getPlace();
