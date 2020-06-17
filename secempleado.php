@@ -185,11 +185,8 @@ session_start();
 				<!-- Nav -->
 					<nav id="nav">
 							<a href="#mesas" class="icon solid fa-table"><span>Mesas</span></a>
+							<a href="#pedidos" class="icon solid fa-table"><span>Pedidos</span></a>
 							<a href="logout.php" class="icon solid fa-door-open"><span>SALIR</span></a>
-						<!-- <a href="https://twitter.com/ajlkn" class="icon brands fa-twitter"><span>Twitter</span></a> -->
-						
-
-
 					</nav>
 
 				<!-- Main -->
@@ -202,19 +199,38 @@ session_start();
 								$result=mysqli_query($conexion,'select idMesa,(SELECT usuarios.nombre from usuarios where usuarios.idUsuario=camarero) as cam from mesas where ocupada=1');
 									if($result->num_rows > 0){
 										echo "<table class='default' style='background-color:#f4f4f4'>";
-										echo "<th>Nº Mesa</th><th>Camarero</th><th>Seleccion</th>";
+										echo "<th>Nº Mesa</th><th>Camarero</th><th>IMPORTE</th><th>Seleccion</th>";
 										while($row = $result->fetch_assoc()){
-											echo "<tr><td>".$row["idMesa"]."</td><td>".$row["cam"]."</td><td><button>Cobrar</button></td></tr>";
+											echo "<tr><td>".$row["idMesa"]."</td><td>".$row["cam"]."</td><td>UN MONTON DE PASTA</td><td><button>Cobrar</button></td></tr>";
 										}
-										
-									
 									}
 									?>
 								</header>
 														
 							</article>
-					</div>
-				<?php	}} ?>
+							<!-- Pedidos -->
+							<article id="pedidos" class="panel">
+								<header>
+								<?php
+								$result=mysqli_query($conexion,'select idMesa from mesas where ocupada=0');
+									if($result->num_rows > 0){
+										echo "<table class='default' style='background-color:#f4f4f4'>";
+										echo "<th>Nº Mesa</th><th><th>Accion</th>";
+										while($row = $result->fetch_assoc()){
+											echo "<tr><td>".$row["idMesa"]."</td><td><button>Añadir pedido</button></td></tr>";
+										}
+									}
+									?>	
+								</header>
+														
+							</article>
+							<div id="footer"></div>
+				</div>
+			</div>			
+			
+
+
+		<?php	}} ?>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
